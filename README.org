@@ -1,4 +1,3 @@
-#+TITLE: helm-browser
 #+AUTHOR: BurnTheKernel
 #+EMAIL: burnthekernel@protonmail.com
 #+OPTIONS: num:nil toc:nil html-postamble:nil creator:nil author:nil date:nil title:nil

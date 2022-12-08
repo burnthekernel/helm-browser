@@ -107,9 +107,8 @@ available via wmctrl."
     (string-match "\t\\(.+\\)\t\\(https://[^[:space:]]+\\)" al-str)
     (setq tab-url (match-string 2 al-str))
     (when aj-helm-browser-debug (message "tab [url] = [%s] Copied" tab-url))
-    (message "Tab URL: %s"  tab-url)
-    (kill-new tab-url))
-  )
+    (message "helm-browser: Tab URL: %s"  tab-url)
+    (kill-new tab-url)))
 
 (defun helm-browser-focus-tab-by-candidate (al)
   "Internal function to focus tab specified by AL, a window associative list."
@@ -166,7 +165,7 @@ available via wmctrl."
            (tab-id (substring al-str 0 (string-match "[[:blank:]]" al-str)))
            (tab-close-cmd (concat helm-browser-bt-path " close " tab-id )))
       (when aj-helm-browser-debug (message (concat "helm-browser: closing a tab with " tab-close-cmd)))
-      (message "Closing tab: %s"  al-str)
+      (message "helm-browser: Closing tab: %s"  al-str)
       (call-process-shell-command tab-close-cmd)))
 
 (defun helm-browser-close-tab-candidates (_al)
@@ -176,8 +175,7 @@ available via wmctrl."
 (defun helm-browser-format-tab-candidate (al)
   "Formats a candidate tabs for tab switcher.
 AL is the associative list for a window."
-  (let* (
-         (tabstr (substring al (string-match "\t" al))))
+  (let* ((tabstr (substring al (string-match "\t" al))))
     (cons tabstr (list al))))
 
 (defun helm-browser-tab-candidates ()
@@ -200,7 +198,6 @@ AL is the associative list for a window."
   (let* ((ddfmt (format "%d.%d" helm-browser-wmclass-width helm-browser-wmclass-width))
          (wmtitlefmt (concat "%-" ddfmt "s %s"))
          (windowstr (format wmtitlefmt (helm-browser-wmclass al) (helm-browser-title al))))
-    (message "wmclass= %s title=%s" (helm-browser-wmclass al) (helm-browser-title al))
     (cons windowstr (list al))))
 
 (defun helm-browser-title (al)
@@ -279,7 +276,7 @@ AL is an associative list for a window."
 AL is a window associative list from helm-browser--list-windows."
     (let* ((id (cdr (assoc 'window-id (car al))))
            (cmd (concat helm-browser-wmctrl-path " -i -c '" id "'")))
-      (message (concat "helm-browser: closing X client with " cmd))
+      (message "helm-browser: Closing window with %s" cmd)
       (call-process-shell-command cmd)))
 
 (defun helm-browser-close-windows (_al)

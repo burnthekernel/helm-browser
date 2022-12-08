@@ -3,14 +3,14 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil creator:nil author:nil date:nil title:nil
 * Introduction
 
-*helm-browser* is an Emacs package that is a helm interface to many popular web browser windows and tabs. *helm-browser* can be used to quickly find and switch between multiple browser windows and tabs.
+*helm-browser* is an Emacs package that implement a helm interface. *helm-browser* can be used to quickly find and switch between multiple browser windows and tabs.
 
 Presently, *helm-browser* can be used to:
 - find and switch to selected browser windows/tabs
 - select and close one or multiple tabs
 - copy a tab's URL (to yank into a document) 
 
-This package is based on [[https://github.com/bdc34/helm-taskswitch][helm-taskswitch]]  (which is also available via MELPA). Which is great except it does not deal with tabs. I have a hundreds of tabs open across half a dozen browser windows and needed some way to locate tabs.
+This package is based on [[https://github.com/bdc34/helm-taskswitch][helm-taskswitch]]  (also available via MELPA). Which is great except it does not deal with tabs. I have hundreds of tabs open across half a dozen browser windows and needed some way to locate tabs.
 ** Dependencies
 - [[https://github.com/emacs-helm/helm][helm]]
 - [[https://www.freedesktop.org/wiki/Software/wmctrl/][wmctrl]]
@@ -36,6 +36,7 @@ This package will only work on Linux and only these web browsers: Firefox, Chrom
 Put *helm-browser.el* in your *load-path* and put this in your *init* file:
 #+begin_src elisp :tangle no
 (require 'helm-browser)
+(global-set-key (kbd "C-x b") 'helm-browser) ;Set key binding (recommended)
 (setq  helm-browser-focus-tab-wait-time 2.5) ;Default. Increase this delay if you have a slower system or low memory.
 #+end_src
 * Future Features (Maybe!)

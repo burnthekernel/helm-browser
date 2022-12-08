@@ -3,7 +3,7 @@
 #+OPTIONS: num:nil toc:nil html-postamble:nil creator:nil author:nil date:nil title:nil
 * Introduction
 
-*helm-browser* is an Emacs package that implement a helm interface. *helm-browser* can be used to quickly find and switch between multiple browser windows and tabs.
+*helm-browser* is an Emacs package that implements a helm interface. *helm-browser* can be used to quickly find and switch between multiple browser windows and tabs.
 
 Presently, *helm-browser* can be used to:
 - find and switch to selected browser windows/tabs

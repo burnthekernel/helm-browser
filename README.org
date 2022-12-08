@@ -10,14 +10,15 @@ Presently, *helm-browser* can be used to:
 - select and close one or multiple tabs
 - copy a tab's URL (to yank into a document) 
 
-This package is based on [[https://github.com/bdc34/helm-taskswitch][helm-taskswitch]]  (which is available via MELPA). Which is great except it does not deal with tabs. I have a hundreds of tabs open across half a dozen browser windows and needed some way to locate tabs.
+This package is based on [[https://github.com/bdc34/helm-taskswitch][helm-taskswitch]]  (which is also available via MELPA). Which is great except it does not deal with tabs. I have a hundreds of tabs open across half a dozen browser windows and needed some way to locate tabs.
 ** Dependencies
 - [[https://github.com/emacs-helm/helm][helm]]
-- [[https://github.com/balta2ar/brotab][brotab]]
 - [[https://www.freedesktop.org/wiki/Software/wmctrl/][wmctrl]]
+- [[https://github.com/balta2ar/brotab][brotab]]
 
-This package will only work on Linux and only these web browsers: Firefox, Chromium, Chrome, Brave Browser. It has been most extensively tested on Firefox. 
+This package will only work on Linux and only these web browsers: Firefox, Chromium, Chrome, Brave Browser. It has been most extensively tested with Firefox. 
 * Installation
+** Install Dependencies
 - Make sure *helm* is installed, configured and working (please see helm documentation for installation & configuration). This is an excellent guide: [[https://tuhdo.github.io/helm-intro.html][A Package in a league of its own: *Helm*]].
 - Install *wmctrl* (use your distribution's package manager)
 - Install *brotab* 
@@ -31,6 +32,12 @@ This package will only work on Linux and only these web browsers: Firefox, Chrom
          - Firefox: [[https://addons.mozilla.org/en-US/firefox/addon/brotab/]]
          - Chrome/Chromium/Brave: [[https://chrome.google.com/webstore/detail/brotab/mhpeahbikehnfkfnmopaigggliclhmnc/]]
     6. Restart browser(s)
+** Emacs Installation and Configuration
+Put *helm-browser.el* in your *load-path* and put this in your *init* file:
+#+begin_src elisp :tangle no
+(require 'helm-browser)
+(setq  helm-browser-focus-tab-wait-time 2.5) ;Default. Increase this delay if you have a slower system or low memory.
+#+end_src
 * Future Features (Maybe!)
 - Publish in MELPA
 - Bookmark one or multiple selected tabs
